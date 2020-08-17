@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">My Weather GU</string>
+    <string name="city_name">MOSKOW</string>
+    <string name="current_date" translatable="false">01.02.2020</string>
+    <string name="currentTemperature" translatable="false">24</string>
+    <string name="currentScale" translatable="false">°C</string>
+    <string name="mcloudy">mcloudy</string>
+    <string name="monTemp" translatable="false">24</string>
+    <string name="mon">MON</string>
+    <string name="sun">SUN</string>
+    <string name="tue">TUE</string>
+    <string name="sat">SAT</string>
+    <string name="fri">FRI</string>
+    <string name="thu">THU</string>
+    <string name="wed">WED</string>
+    <string name="img_desc_mondey" >pcloudy</string>
+    <string name="img_desc_tuesday">img_desc_tuesday</string>
+    <string name="img_desc_wednesday">pcloudy</string>
+    <string name="img_desc_thursdey">mcloudy</string>
+    <string name="img_desc_friday">mcloudy</string>
+    <string name="img_desc_saturday">storm</string>
+    <string name="img_desc_sunday">sunny</string>
+    <string name="suntemp" translatable="false">23</string>
+    <string name="satTemp" translatable="false">20</string>
+    <string name="tueTemp" translatable="false">23</string>
+    <string name="thuTemp" translatable="false">22</string>
+    <string name="friTemp" translatable="false">26</string>
+    <string name="wedTemp" translatable="false">20</string>
 </resources>

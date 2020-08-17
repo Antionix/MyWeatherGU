@@ -6,13 +6,386 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/current_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|top"
+            android:text="@string/current_date"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/cityName"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center|center_horizontal"
+            android:text="@string/city_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="36sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageCurrentWeather"
+                android:layout_width="244dp"
+                android:layout_height="145dp"
+                android:contentDescription="@string/mcloudy"
+                app:srcCompat="@drawable/ic_mcloudy" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/currentTemperature"
+                    android:layout_width="118dp"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center_vertical"
+                    android:text="@string/currentTemperature"
+                    android:textSize="72sp" />
+
+                <TextView
+                    android:id="@+id/scaleTemperature"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/currentScale"
+                    android:textSize="36sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/nameMON"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxWidth="50sp"
+                        android:text="@string/mon"
+                        android:textSize="30sp" />
+
+                    <ImageView
+                        android:id="@+id/imageMON"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/img_desc_mondey"
+                        app:srcCompat="@drawable/ic_pcloudy" />
+
+                    <TextView
+                        android:id="@+id/temperatureMON"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|center_vertical"
+                        android:text="@string/monTemp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/scaleMON"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:maxWidth="30dp"
+                        android:minWidth="15sp"
+                        android:text="@string/currentScale"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/nameTUE"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxWidth="50sp"
+                        android:text="@string/tue"
+                        android:textSize="30sp" />
+
+                    <ImageView
+                        android:id="@+id/imageTUE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/img_desc_tuesday"
+                        app:srcCompat="@drawable/ic_pcloudy" />
+
+                    <TextView
+                        android:id="@+id/temperatureTUE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|center_vertical"
+                        android:text="@string/tueTemp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/scaleTUE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:maxWidth="30dp"
+                        android:minWidth="15sp"
+                        android:text="@string/currentScale"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/nameWED"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxWidth="50sp"
+                        android:text="@string/wed"
+                        android:textSize="30sp" />
+
+                    <ImageView
+                        android:id="@+id/imageWED"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/img_desc_wednesday"
+                        app:srcCompat="@drawable/ic_pcloudy" />
+
+                    <TextView
+                        android:id="@+id/temperatureWED"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|center_vertical"
+                        android:text="@string/wedTemp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/scaleWED"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:maxWidth="30dp"
+                        android:minWidth="15sp"
+                        android:text="@string/currentScale"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/nameTHU"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxWidth="50sp"
+                        android:text="@string/thu"
+                        android:textSize="30sp" />
+
+                    <ImageView
+                        android:id="@+id/imageTHU"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/img_desc_thursdey"
+                        app:srcCompat="@drawable/ic_pcloudy" />
+
+                    <TextView
+                        android:id="@+id/temperatureTHU"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|center_vertical"
+                        android:text="@string/thuTemp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/scaleTHU"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:maxWidth="30dp"
+                        android:minWidth="15sp"
+                        android:text="@string/currentScale"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/nameFRI"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxWidth="50sp"
+                        android:text="@string/fri"
+                        android:textSize="30sp" />
+
+                    <ImageView
+                        android:id="@+id/imageFRI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/img_desc_friday"
+                        app:srcCompat="@drawable/ic_mcloudy" />
+
+                    <TextView
+                        android:id="@+id/temperatureFRI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|center_vertical"
+                        android:text="@string/friTemp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/scaleFRI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:maxWidth="30dp"
+                        android:minWidth="15sp"
+                        android:text="@string/currentScale"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/nameSAT"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxWidth="50sp"
+                        android:text="@string/sat"
+                        android:textSize="30sp" />
+
+                    <ImageView
+                        android:id="@+id/imageSAT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/img_desc_saturday"
+                        app:srcCompat="@drawable/ic_storm" />
+
+                    <TextView
+                        android:id="@+id/temperatureSAT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|center_vertical"
+                        android:text="@string/satTemp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/scaleSAT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:maxWidth="30dp"
+                        android:minWidth="15sp"
+                        android:text="@string/currentScale"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/nameSUN"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:maxWidth="50sp"
+                        android:text="@string/sun"
+                        android:textSize="30sp" />
+
+                    <ImageView
+                        android:id="@+id/imageSUN"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/img_desc_sunday"
+                        app:srcCompat="@drawable/ic_sunny" />
+
+                    <TextView
+                        android:id="@+id/temperatureSUN"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|center_vertical"
+                        android:text="@string/suntemp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/scaleSUN"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start|center_vertical"
+                        android:maxWidth="30dp"
+                        android:minWidth="15sp"
+                        android:text="@string/currentScale"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/current_date"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal|top"
-            android:text="@string/current_date"
-            android:textSize="30sp" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
 
         <TextView
             android:id="@+id/cityName"
@@ -28,90 +31,123 @@
             android:gravity="center|center_horizontal"
             android:text="@string/city_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupCurrentDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="imageCurrentWeather,currentTemperature,scaleTemperature" />
+
+        <ImageView
+            android:id="@+id/imageCurrentWeather"
+            android:layout_width="280dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/mcloudy"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_date"
+            app:srcCompat="@drawable/ic_mcloudy" />
+
+        <TextView
+            android:id="@+id/currentTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:gravity="end|center_vertical"
+            android:text="@string/currentTemperature"
+            android:textSize="72sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageCurrentWeather"
+            app:layout_constraintStart_toEndOf="@+id/imageCurrentWeather"
+            app:layout_constraintTop_toBottomOf="@+id/current_date" />
+
+        <TextView
+            android:id="@+id/scaleTemperature"
+            android:layout_width="47dp"
+            android:layout_height="0dp"
+            android:gravity="start|center_vertical"
+            android:text="@string/currentScale"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="@+id/currentTemperature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currentTemperature"
+            app:layout_constraintTop_toTopOf="@+id/currentTemperature" />
+
+        <TextView
+            android:id="@+id/current_date"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|top"
+            android:text="@string/current_date"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cityName" />
 
-            <ImageView
-                android:id="@+id/imageCurrentWeather"
-                android:layout_width="244dp"
-                android:layout_height="145dp"
-                android:contentDescription="@string/mcloudy"
-                app:srcCompat="@drawable/ic_mcloudy" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/currentTemperature"
-                    android:layout_width="118dp"
-                    android:layout_height="match_parent"
-                    android:gravity="end|center_vertical"
-                    android:text="@string/currentTemperature"
-                    android:textSize="72sp" />
-
-                <TextView
-                    android:id="@+id/scaleTemperature"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="start|center_vertical"
-                    android:text="@string/currentScale"
-                    android:textSize="36sp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageCurrentWeather">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:weightSum="7">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
-                    tools:ignore="UselessParent">
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/nameMON"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="23"
+                        android:gravity="center_vertical"
                         android:maxWidth="50sp"
                         android:text="@string/mon"
                         android:textSize="30sp" />
 
                     <ImageView
                         android:id="@+id/imageMON"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="50"
                         android:contentDescription="@string/img_desc_mondey"
+                        android:gravity="center_horizontal|center_vertical"
                         app:srcCompat="@drawable/ic_pcloudy" />
 
                     <TextView
                         android:id="@+id/temperatureMON"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="17"
                         android:gravity="end|center_vertical"
                         android:text="@string/monTemp"
                         android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/scaleMON"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="10"
                         android:gravity="start|center_vertical"
                         android:maxWidth="30dp"
                         android:minWidth="15sp"
@@ -121,41 +157,43 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
-                    tools:ignore="UselessParent">
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/nameTUE"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="23"
                         android:maxWidth="50sp"
                         android:text="@string/tue"
                         android:textSize="30sp" />
 
                     <ImageView
                         android:id="@+id/imageTUE"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="50"
                         android:contentDescription="@string/img_desc_tuesday"
                         app:srcCompat="@drawable/ic_pcloudy" />
 
                     <TextView
                         android:id="@+id/temperatureTUE"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="17"
                         android:gravity="end|center_vertical"
                         android:text="@string/tueTemp"
                         android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/scaleTUE"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="10"
                         android:gravity="start|center_vertical"
                         android:maxWidth="30dp"
                         android:minWidth="15sp"
@@ -165,227 +203,259 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
-                    tools:ignore="UselessParent">
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/nameWED"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="23"
                         android:maxWidth="50sp"
                         android:text="@string/wed"
                         android:textSize="30sp" />
 
                     <ImageView
                         android:id="@+id/imageWED"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="50"
                         android:contentDescription="@string/img_desc_wednesday"
                         app:srcCompat="@drawable/ic_pcloudy" />
 
                     <TextView
                         android:id="@+id/temperatureWED"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="17"
                         android:gravity="end|center_vertical"
                         android:text="@string/wedTemp"
                         android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/scaleWED"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="10"
                         android:gravity="start|center_vertical"
                         android:maxWidth="30dp"
                         android:minWidth="15sp"
                         android:text="@string/currentScale"
                         android:textSize="24sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
-                    tools:ignore="UselessParent">
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/nameTHU"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="23"
                         android:maxWidth="50sp"
                         android:text="@string/thu"
                         android:textSize="30sp" />
 
                     <ImageView
                         android:id="@+id/imageTHU"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="50"
                         android:contentDescription="@string/img_desc_thursdey"
                         app:srcCompat="@drawable/ic_pcloudy" />
 
                     <TextView
                         android:id="@+id/temperatureTHU"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="17"
                         android:gravity="end|center_vertical"
                         android:text="@string/thuTemp"
                         android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/scaleTHU"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="10"
                         android:gravity="start|center_vertical"
                         android:maxWidth="30dp"
                         android:minWidth="15sp"
                         android:text="@string/currentScale"
                         android:textSize="24sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
-                    tools:ignore="UselessParent">
+                    android:weightSum="100">
 
                     <TextView
+
                         android:id="@+id/nameFRI"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="23"
                         android:maxWidth="50sp"
                         android:text="@string/fri"
                         android:textSize="30sp" />
 
                     <ImageView
                         android:id="@+id/imageFRI"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="50"
                         android:contentDescription="@string/img_desc_friday"
                         app:srcCompat="@drawable/ic_mcloudy" />
 
                     <TextView
                         android:id="@+id/temperatureFRI"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="17"
                         android:gravity="end|center_vertical"
                         android:text="@string/friTemp"
                         android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/scaleFRI"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="10"
                         android:gravity="start|center_vertical"
                         android:maxWidth="30dp"
                         android:minWidth="15sp"
                         android:text="@string/currentScale"
                         android:textSize="24sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
-                    tools:ignore="UselessParent">
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/nameSAT"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="23"
                         android:maxWidth="50sp"
                         android:text="@string/sat"
                         android:textSize="30sp" />
 
                     <ImageView
                         android:id="@+id/imageSAT"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="50"
                         android:contentDescription="@string/img_desc_saturday"
                         app:srcCompat="@drawable/ic_storm" />
 
                     <TextView
                         android:id="@+id/temperatureSAT"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="17"
                         android:gravity="end|center_vertical"
                         android:text="@string/satTemp"
                         android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/scaleSAT"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="10"
                         android:gravity="start|center_vertical"
                         android:maxWidth="30dp"
                         android:minWidth="15sp"
                         android:text="@string/currentScale"
                         android:textSize="24sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
                     android:orientation="horizontal"
-                    tools:ignore="UselessParent">
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/nameSUN"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="23"
                         android:maxWidth="50sp"
                         android:text="@string/sun"
                         android:textSize="30sp" />
 
                     <ImageView
                         android:id="@+id/imageSUN"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="50"
                         android:contentDescription="@string/img_desc_sunday"
                         app:srcCompat="@drawable/ic_sunny" />
 
                     <TextView
                         android:id="@+id/temperatureSUN"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="17"
                         android:gravity="end|center_vertical"
                         android:text="@string/suntemp"
                         android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/scaleSUN"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="10"
                         android:gravity="start|center_vertical"
                         android:maxWidth="30dp"
                         android:minWidth="15sp"
                         android:text="@string/currentScale"
                         android:textSize="24sp" />
+
                 </LinearLayout>
 
             </LinearLayout>
-        </ScrollView>
 
-    </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cityName"
+            app:srcCompat="@android:drawable/ic_menu_search" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectCityActivity">
+
+    <TextView
+        android:id="@+id/selectetCityTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/select_city_name"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editFindCityName"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/enter_find_city"
+        app:layout_constraintEnd_toStartOf="@+id/findCityButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectetCityTitle"
+        android:importantForAutofill="no" />
+
+    <ImageButton
+        android:id="@+id/findCityButton"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:contentDescription="@android:string/fingerprint_icon_content_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editFindCityName"
+        app:layout_constraintTop_toBottomOf="@+id/selectetCityTitle"
+        app:srcCompat="@android:drawable/ic_menu_search" tools:targetApi="m"/>
+
+    <ListView
+        android:id="@+id/cityNameList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:entries="@array/city_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFindCityName">
+
+    </ListView>
+</androidx.constraintlayout.widget.ConstraintLayout>

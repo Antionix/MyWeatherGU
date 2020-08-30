@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Моя Погода GU</string>
+    <string name="city_name">МОСКВА</string>
+    <string name="mcloudy">облачно</string>
+    <string name="img_desc_tuesday">дождь</string>
+    <string name="img_desc_wednesday">перемеенная облачность</string>
+    <string name="img_desc_thursdey">облачно</string>
+    <string name="img_desc_friday">облачно</string>
+    <string name="img_desc_saturday">гроза</string>
+    <string name="img_desc_sunday">ясно</string>
+    <string name="mon">ПН</string>
+    <string name="tue">ВТ</string>
+    <string name="wed">СР</string>
+    <string name="thu">ЧТ</string>
+    <string name="fri">ПТ</string>
+    <string name="sat">СБ</string>
+    <string name="sun">ВС</string>
+    <string name="img_desc_mondey">переменная облачность</string>
 </resources>
